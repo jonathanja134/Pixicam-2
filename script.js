@@ -242,6 +242,7 @@ container.addEventListener('touchmove', function(e) {
             touches[1].pageX - touches[0].pageX,
             touches[1].pageY - touches[0].pageY
         );
+        alert();
         let scaleChange = currentDistance / initialDistance;
         currentScale *= scaleChange;
 
