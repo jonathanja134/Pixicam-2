@@ -219,3 +219,38 @@ function mouseWheelEvent(event) {
     event.preventDefault();
 }
 
+//---------------------------------------
+
+
+let initialDistance = 0;
+let currentScale = 1;
+
+container.addEventListener('touchstart', function(e) {
+    let touches = e.touches;
+    if (touches.length === 2) {
+        initialDistance = Math.hypot(
+            touches[1].pageX - touches[0].pageX,
+            touches[1].pageY - touches[0].pageY
+        );
+    }
+});
+
+container.addEventListener('touchmove', function(e) {
+    let touches = e.touches;
+    if (touches.length === 2) {
+        let currentDistance = Math.hypot(
+            touches[1].pageX - touches[0].pageX,
+            touches[1].pageY - touches[0].pageY
+        );
+        let scaleChange = currentDistance / initialDistance;
+        currentScale *= scaleChange;
+
+        // Apply the scale transformation to the image
+        canvasEl.style.transform = `scale(${currentScale})`;
+    }
+});
+
+container.addEventListener('touchend', function(e) {
+    // Reset the initial distance and current scale for the next pinch gesture
+    initialDistance = 0;
+});
