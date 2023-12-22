@@ -238,7 +238,7 @@ let initialDistance = 0;
 let currentScale = 0.5;
 
 function scaling() {
-  container.style.transform = `scale(${currentScale})`;
+  canvasEl.style.transform = `scale(${currentScale})`;
   requestAnimationFrame(scaling);
 }
 
@@ -277,6 +277,6 @@ container.addEventListener('touchend', function(e) {
 
 let scalingId; // Identifiant pour l'animation
 function scaling() {
-    container.style.transform = `scale(${currentScale})`;
+    canvasEl.style.transform = `scale(${currentScale})`;
     scalingId = requestAnimationFrame(scaling);
 }
