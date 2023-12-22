@@ -102,7 +102,7 @@ const drawPixel = ( pixelSize) => {
 //---- 7/ Creation of the OnClick function that change the pixel color ----//
 
 const onClickPixel = (canvasEl, pixelSize,e) => {
-  canvasEl.addEventListener("contextmenu", (event) => {
+  canvasEl.addEventListener("contextmenu","touchend", (event) => {
     event.preventDefault();//prevent right click menu
     panning =true
     event.preventDefault();
@@ -252,5 +252,5 @@ container.addEventListener('touchmove', function(e) {
 
 container.addEventListener('touchend', function(e) {
     // Reset the initial distance and current scale for the next pinch gesture
-    initialDistance = 0;
+    //initialDistance = 0;
 });
