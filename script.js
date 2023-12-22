@@ -258,7 +258,12 @@ container.addEventListener('touchmove', function(e) {
         currentScale *= scaleChange;
 
         // Apply the scale transformation to the image
+        function scaling() {
         canvasEl.style.transform = `scale(${currentScale})`;
+        requestAnimationFrame(scaling);
+        }
+        scaling();
+      
     }
 });
 
