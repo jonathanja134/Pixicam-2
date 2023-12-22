@@ -11,6 +11,7 @@ window.addEventListener('load', adjustDivSize);
               Container.style.height = Container.offsetWidth + "px";
               console.log("height",Container.style.height)
               console.log("width",Container.style.width)
+              console.log("square resize",Container.style.height ,Container.offsetWidth)
             }
             else{
               Container.style.height = "60vh";
