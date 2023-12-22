@@ -102,23 +102,35 @@ const drawPixel = ( pixelSize) => {
 //---- 7/ Creation of the OnClick function that change the pixel color ----//
 
 const onClickPixel = (canvasEl, pixelSize,e) => {
-  canvasEl.addEventListener("contextmenu","touchend", (event) => {
+  canvasEl.addEventListener("contextmenu", (event) => {
     event.preventDefault();//prevent right click menu
     panning =true
     event.preventDefault();
     const colIndex = Math.floor(event.offsetX / pixelSize);// get the Y axis index
     const rowIndex = Math.floor(event.offsetY / pixelSize);// get the X axis index
-
     if (pixelData[rowIndex][colIndex] !== null) {
       createPixel(rowIndex,colIndex,currentColorChoice)
       }
-
     const pixel = {colIndex,rowIndex, color: currentColorChoice}
+    let pixelRef = db.collection('pixel').doc(`pixel :${pixel.colIndex}-${pixel.rowIndex}`)
+    pixelRef.set(pixel, {merge: true})
+  });
 
+  canvasEl.addEventListener("touchend", (event) => {
+    panning =true
+    event.preventDefault();
+    const colIndex = Math.floor(event.offsetX / pixelSize);// get the Y axis index
+    const rowIndex = Math.floor(event.offsetY / pixelSize);// get the X axis index
+    if (pixelData[rowIndex][colIndex] !== null) {
+      createPixel(rowIndex,colIndex,currentColorChoice)
+      }
+    const pixel = {colIndex,rowIndex, color: currentColorChoice}
     let pixelRef = db.collection('pixel').doc(`pixel :${pixel.colIndex}-${pixel.rowIndex}`)
     pixelRef.set(pixel, {merge: true})
   });
 };
+
+
 
 function createPixel(rowIndex,colIndex,color)
 {
