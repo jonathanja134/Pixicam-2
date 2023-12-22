@@ -1,4 +1,4 @@
-import { ethers } from "../../ethers-5.1.esm.min.js"
+import { ethers } from "./ethers-5.1.esm.min.js"
 // recuperer les fct de notre modules ethers.js
 
 import { abi,contractAddress } from "./constant.js"
