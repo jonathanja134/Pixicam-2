@@ -4,6 +4,17 @@ window.addEventListener('resize', adjustDivSize);
 window.addEventListener('load', adjustDivSize);
 
         function adjustDivSize() {
+            const Container = document.getElementById("Container");
+            let Height = Container.offsetHeight;
+            let Width  = Container.offsetWidth;
+            if(Width <= Height){
+              Container.style.height = Container.offsetWidth + "px";
+              console.log("height",Container.style.height)
+              console.log("width",Container.style.width)
+            }
+            else{
+              Container.style.height = "60vh";
+            }
             const resizeTool = document.getElementsByClassName('resizeToolBlock');
             const windowHeight = window.innerHeight;
             const newHeight = windowHeight * 0.05; // Ajustez selon vos besoins
@@ -102,3 +113,6 @@ function HideToolbar(){
   }
   console.log(hiden)
 }
+
+//--------
+
