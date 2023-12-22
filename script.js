@@ -223,7 +223,7 @@ function mouseWheelEvent(event) {
 
 
 let initialDistance = 0;
-let currentScale = 1;
+let currentScale = 0.5;
 
 container.addEventListener('touchstart', function(e) {
     let touches = e.touches;
@@ -242,7 +242,6 @@ container.addEventListener('touchmove', function(e) {
             touches[1].pageX - touches[0].pageX,
             touches[1].pageY - touches[0].pageY
         );
-        alert();
         let scaleChange = currentDistance / initialDistance;
         currentScale *= scaleChange;
 
