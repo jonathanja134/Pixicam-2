@@ -237,37 +237,46 @@ function mouseWheelEvent(event) {
 let initialDistance = 0;
 let currentScale = 0.5;
 
+function scaling() {
+  container.style.transform = `scale(${currentScale})`;
+  requestAnimationFrame(scaling);
+}
+
 container.addEventListener('touchstart', function(e) {
-    let touches = e.touches;
-    if (touches.length === 2) {
-        initialDistance = Math.hypot(
-            touches[1].pageX - touches[0].pageX,
-            touches[1].pageY - touches[0].pageY
-        );
-    }
-});
-
-container.addEventListener('touchmove', function(e) {
-    let touches = e.touches;
-    if (touches.length === 2) {
-        let currentDistance = Math.hypot(
-            touches[1].pageX - touches[0].pageX,
-            touches[1].pageY - touches[0].pageY
-        );
-        let scaleChange = currentDistance / initialDistance;
-        currentScale *= scaleChange;
-
-        // Apply the scale transformation to the image
-        function scaling() {
-        canvasEl.style.transform = `scale(${currentScale})`;
-        requestAnimationFrame(scaling);
-        }
-        scaling();
+  let touches = e.touches;
+  if (touches.length === 2) {
+      initialDistance = Math.hypot(
+          touches[1].pageX - touches[0].pageX,
+          touches[1].pageY - touches[0].pageY
+      );
       
-    }
+      // Démarrer l'animation une fois au début du pincement
+      if (!scalingId) {
+          scaling();
+      }
+  }
+});
+container.addEventListener('touchmove', function(e) {
+  e.preventDefault(); // Empêcher le défilement par défaut
+
+  let touches = e.touches;
+  if (touches.length === 2) {
+      let currentDistance = Math.hypot(
+          touches[1].pageX - touches[0].pageX,
+          touches[1].pageY - touches[0].pageY
+      );
+      let scaleChange = currentDistance / initialDistance;
+      currentScale *= scaleChange;
+  }
 });
 
 container.addEventListener('touchend', function(e) {
     // Reset the initial distance and current scale for the next pinch gesture
     //initialDistance = 0;
 });
+
+let scalingId; // Identifiant pour l'animation
+function scaling() {
+    container.style.transform = `scale(${currentScale})`;
+    scalingId = requestAnimationFrame(scaling);
+}
