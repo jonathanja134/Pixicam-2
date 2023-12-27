@@ -17,6 +17,7 @@ const colorList = [
   'lightgreen', 'cyan', '#052be6', '#690be4', '#ce0ee0', '#c75884'];
 
 let currentColorChoice = 0;
+let panning = Boolean;
 
 document.querySelector("html").addEventListener("wheel", function (e) {
   e.preventDefault();
@@ -192,7 +193,6 @@ container.addEventListener("mouseout", mouseEvent, {passive: false});
 container.addEventListener("wheel", mouseWheelEvent, {passive: false});
 
 const mouse = {x: 0, y: 0, oldX: 0, oldY: 0, button: false};
-let panning = Boolean;
 let multiplicator=2.55;
 
 
