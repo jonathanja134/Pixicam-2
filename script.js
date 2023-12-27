@@ -204,7 +204,7 @@ function mouseEvent(event) {
       panning = false}
     if (event.type === "contextmenu") {mouse.button = false}
     if (event.type === "mouseup" || event.type === "mouseout") { mouse.button = false ;canvasEl.style.cursor = "crosshair";}
-    if (window.location.href=="http://127.0.0.1:5500/Front-end/HTML/FullSizePage.html"){multiplicator=1.1;}
+    if (window.location.href=="http://127.0.0.1:5500/FullSizePage.html"){multiplicator=1.1;}
     mouse.oldX = mouse.x;
     mouse.oldY = mouse.y;
     mouse.x = event.pageX*multiplicator;
