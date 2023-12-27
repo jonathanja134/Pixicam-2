@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
 
+:root {
+  //variable bleu en backgroud
+  --blueBACK: #668bcb;
+}
+
 .html {
 background: linear-gradient(0deg, rgba(4,46,96,1) 0%, #004ac3 62%, #152f4e 100%);
 }
@@ -54,36 +59,54 @@ body{display: flex;
 
 #colorChoice {
   display: flex;
-  flex-wrap: nowrap;
+  flex-flow:nowrap;
   position: sticky;
-  margin-inline: 10px;
-  margin-top: 15%;
-  background-color: #5475c0;
-  width: 90%;
-  max-width: 1400px;
+  margin: auto;
+  background: var(--blueBACK);
+  width: fit-content;
+  max-width: 85%;
   height: max-content;
-  padding: 2vh;
+  padding: 1vh;
   border-radius: 20%;
   box-shadow: 2px 2px 10px -5px;
-  justify-content: start;
-  overflow-x:scroll;
+  justify-content: center;
+  margin-bottom: 5vh;
+  margin-top: 2vh;
+  z-index: 99;
+  overflow-x: scroll;
+}
+#colorChoice.fullPageColorChoice{
+  margin-top: 14vw;
+}
+#colorChoice.indexPage{
+  margin-top: 2vh;
 }
 
-.resizeTool {
+.resizeToolBlock {
   display: flex;
-  height: 9vh;
-  width: 9vh;
-  margin: 2vh;
+  // width and height set in the script.js
+  margin: 1vh;
+  flex-shrink: 0;
   border-radius: 25%;
   justify-content: center;
   align-items: center;
-  flex-shrink:0;
-  animation: linear infinite;
+  transition: transform 0.2s ease-in-out;
+  flex-shrink: 0;
 }
 #colorChoice div:hover {
   cursor: pointer;
   opacity: 70%;
+  transform: rotate(45deg) scale(1.3, 1.3);
 }
+@keyframes rotate{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
 canvas{
   display: flex;
   justify-content: center;

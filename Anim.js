@@ -4,17 +4,21 @@ window.addEventListener('resize', adjustDivSize);
 window.addEventListener('load', adjustDivSize);
 
         function adjustDivSize() {
-            const Container = document.getElementById("Container");
-            let Height = Container.offsetHeight;
-            let Width  = Container.offsetWidth;
-            if(Width <= Height){
-              Container.style.height = Container.offsetWidth + "px";
-              console.log("height",Container.style.height)
-              console.log("width",Container.style.width)
-              console.log("square resize",Container.style.height ,Container.offsetWidth)
-            }
-            else{
-              Container.style.height = "60vh";
+          console.log()
+          if(window.location.href=== "indexMobile.html")
+            {
+              const Container = document.getElementById("Container");
+              let Height = Container.offsetHeight;
+              let Width  = Container.offsetWidth;
+              if(Width <= Height){
+                Container.style.height = Container.offsetWidth + "px";
+                console.log("height",Container.style.height)
+                console.log("width",Container.style.width)
+                console.log("square resize",Container.style.height ,Container.offsetWidth)
+              }
+              else{
+                Container.style.height = "60vh";
+              }
             }
             const resizeTool = document.getElementsByClassName('resizeToolBlock');
             const windowHeight = window.innerHeight;
@@ -28,7 +32,6 @@ window.addEventListener('load', adjustDivSize);
           const newRadius = (windowHeight *0.03 ); // Ajustez selon vos besoins
           colorChoice.style.borderRadius = newRadius + 'px';
         }
-
 //-------------------2/ POP UP--------------------//
 
 let PopupOkay = document.getElementById("Popup-Okay");
@@ -117,7 +120,7 @@ function HideToolbar(){
 
 //-------------- Redirect to the mobilie app
 
-//window.addEventListener('touchstart',MobilePage)
+window.addEventListener('touchstart',MobilePage)
 Asked = Boolean;
 Asked = false;
 
@@ -125,6 +128,5 @@ function MobilePage() {
   if(Asked ==false){
     Asked=true;
     window.location.href = 'indexMobile.html';
-
-  }
+    }
   }
