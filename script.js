@@ -125,8 +125,8 @@ const onClickPixel = (canvasEl, pixelSize,e) => {
     const canvaFactor =0.85
     panning =true
     event.preventDefault();
-    const colIndex = Math.floor(offsetX*(canvasWidth/(window.innerWidth*canvaFactor)) / pixelSize);// get the Y axis index
-    const rowIndex = Math.floor(offsetY*1.69428708 / pixelSize);// get the X axis index
+    const colIndex = Math.floor(offsetX/ pixelSize);// get the Y axis index
+    const rowIndex = Math.floor(offsetY/ pixelSize);// get the X axis index
     if (pixelData[rowIndex][colIndex] !== null) {
       createPixel(rowIndex,colIndex,currentColorChoice)
       }
