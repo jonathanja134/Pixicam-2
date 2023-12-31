@@ -8,21 +8,18 @@
 .html {
 background: linear-gradient(0deg, rgba(4,46,96,1) 0%, #004ac3 62%, #152f4e 100%);
 }
-@media (max-width: 1600px) {
-    html{
-        width: fit-content;
-    }
-  }
+
 body{display: flex;
     align-items: center;
     justify-content: center;
     flex-flow: column;}
 .title {
   width: -moz-fit-content;
+  text-align: center;
   width: fit-content;
   color: #fa952a;
   margin-inline: auto;
-  font-size: 10em;
+  font-size: 10vw;
   font-family: "Pixelify Sans", sans-serif;
   margin-bottom: 0px;
   margin-top: 20px;
@@ -53,7 +50,7 @@ body{display: flex;
   }
 }
 .title.underTitle {
-  font-size: 5em;
+  font-size: 7vw;
   margin-bottom: 15px;
 }
 
@@ -61,15 +58,15 @@ body{display: flex;
   display: flex;
   flex-flow:nowrap;
   position: sticky;
-  margin: auto;
+  //margin: auto;
   background: var(--blueBACK);
-  width: fit-content;
-  max-width: 85%;
+  width: 70%;
+  max-width: max-content;
   height: max-content;
   padding: 1vh;
   border-radius: 20%;
   box-shadow: 2px 2px 10px -5px;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 5vh;
   margin-top: 2vh;
   z-index: 99;
@@ -110,6 +107,7 @@ body{display: flex;
 canvas{
   display: flex;
   justify-content: center;
+  max-width: 85%;
 }
 button {
   background-color: #faf3e6;

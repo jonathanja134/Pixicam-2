@@ -121,6 +121,7 @@ function HideToolbar(){
 //-------------- Redirect to the mobilie app
 
 window.addEventListener('touchstart',MobilePage)
+window.addEventListener('click',MobilePage)
 Asked = Boolean;
 Asked = false;
 
