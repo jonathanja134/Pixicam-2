@@ -117,14 +117,16 @@ const onClickPixel = (canvasEl, pixelSize,e) => {
     pixelRef.set(pixel, {merge: true})
   });
 
-  canvasEl.addEventListener("touchstart", (event) => {
-    alert("touchstart")});
+
   canvasEl.addEventListener("touchend", (event) => {
-    alert("touchend")
+    const touch = event.changedTouches[0];
+    const offsetX = touch.pageX - canvasEl.offsetLeft;
+    const offsetY = touch.pageY - canvasEl.offsetTop;
+    const canvaFactor =0.85
     panning =true
     event.preventDefault();
-    const colIndex = Math.floor(event.offsetX / pixelSize);// get the Y axis index
-    const rowIndex = Math.floor(event.offsetY / pixelSize);// get the X axis index
+    const colIndex = Math.floor(offsetX*(canvasWidth/(window.innerWidth*canvaFactor)) / pixelSize);// get the Y axis index
+    const rowIndex = Math.floor(offsetY*1.69428708 / pixelSize);// get the X axis index
     if (pixelData[rowIndex][colIndex] !== null) {
       createPixel(rowIndex,colIndex,currentColorChoice)
       }

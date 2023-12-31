@@ -114,7 +114,6 @@ body {
 canvas {
   display: flex;
   justify-content: center;
-  max-width: 85%;
 }
 
 button {
