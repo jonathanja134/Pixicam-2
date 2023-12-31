@@ -121,7 +121,6 @@ function HideToolbar(){
 //-------------- Redirect to the mobilie app
 
 window.addEventListener('touchstart',MobilePage)
-window.addEventListener('click',MobilePage)
 Asked = Boolean;
 Asked = false;
 
@@ -129,5 +128,6 @@ function MobilePage() {
   if(Asked ==false){
     Asked=true;
     window.location.href = 'indexMobile.html';
+    alert("YOU HAVE JOINED THE MOBILE VERSION")
     }
   }
