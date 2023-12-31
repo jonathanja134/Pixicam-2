@@ -117,6 +117,9 @@ const onClickPixel = (canvasEl, pixelSize,e) => {
     pixelRef.set(pixel, {merge: true})
   });
 
+  canvasEl.addEventListener("touchmove", (event) => {
+    panning=false;
+  });
 
   canvasEl.addEventListener("touchend", (event) => {
     const touch = event.changedTouches[0];
