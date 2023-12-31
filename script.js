@@ -117,7 +117,10 @@ const onClickPixel = (canvasEl, pixelSize,e) => {
     pixelRef.set(pixel, {merge: true})
   });
 
+  canvasEl.addEventListener("touchstart", (event) => {
+    alert("touchstart")});
   canvasEl.addEventListener("touchend", (event) => {
+    alert("touchend")
     panning =true
     event.preventDefault();
     const colIndex = Math.floor(event.offsetX / pixelSize);// get the Y axis index
