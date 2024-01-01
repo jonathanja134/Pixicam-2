@@ -119,7 +119,7 @@ const onClickPixel = (canvasEl, pixelSize,e) => {
 
   let touchStartX = 0;
   let touchStartY = 0;
-  const touchThreshold = 5; // Threshold in pixels to detect significant touch movement
+  const touchThreshold = 2; // Threshold in pixels to detect significant touch movement
 
 canvasEl.addEventListener("touchstart", (event) => {
   const touch = event.changedTouches[0];
