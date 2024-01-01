@@ -5,6 +5,8 @@
 }
 
 .html {
+  width: -moz-max-content;
+  width: max-content;
   background: linear-gradient(0deg, rgb(4, 46, 96) 0%, #004ac3 62%, #152f4e 100%);
 }
 
