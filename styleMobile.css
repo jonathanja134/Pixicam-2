@@ -63,7 +63,7 @@ body {
   flex-flow: nowrap;
   position: sticky;
   background: var(--blueBACK);
-  width: 70%;
+  width: 1610px;
   max-width: -moz-max-content;
   max-width: max-content;
   height: -moz-max-content;

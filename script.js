@@ -117,20 +117,33 @@ const onClickPixel = (canvasEl, pixelSize,e) => {
     pixelRef.set(pixel, {merge: true})
   });
 
-  canvasEl.addEventListener("touchmove", (event) => {
-    panning=false;
-  });
+  let touchStartX = 0;
+  let touchStartY = 0;
+  const touchThreshold = 5; // Threshold in pixels to detect significant touch movement
+
+canvasEl.addEventListener("touchstart", (event) => {
+  const touch = event.changedTouches[0];
+  touchStartX = touch.pageX;
+  touchStartY = touch.pageY;
+});
 
   canvasEl.addEventListener("touchend", (event) => {
     const touch = event.changedTouches[0];
     const offsetX = touch.pageX - canvasEl.offsetLeft;
     const offsetY = touch.pageY - canvasEl.offsetTop;
-    const canvaFactor =0.85
+    const touchEndX = touch.pageX;
+    const touchEndY = touch.pageY;
+  
+    // Calculate the distance between touch start and end locations
+    const deltaX = Math.abs(touchEndX - touchStartX);
+    const deltaY = Math.abs(touchEndY - touchStartY);
+  
     panning =true
     event.preventDefault();
     const colIndex = Math.floor(offsetX/ pixelSize);// get the Y axis index
     const rowIndex = Math.floor(offsetY/ pixelSize);// get the X axis index
-    if (pixelData[rowIndex][colIndex] !== null) {
+   
+    if (pixelData[rowIndex][colIndex] !== null&& deltaX <= touchThreshold && deltaY <= touchThreshold) {
       createPixel(rowIndex,colIndex,currentColorChoice)
       }
     const pixel = {colIndex,rowIndex, color: currentColorChoice}
