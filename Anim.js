@@ -2,7 +2,8 @@
 
 window.addEventListener('resize', adjustDivSize);
 window.addEventListener('load', adjustDivSize);
-
+const ScalingFactor = 0.05
+const ScalingFactorMobile = 0.1
         function adjustDivSize() {
           console.log()
           if(window.location.href=== "indexMobile.html")
@@ -22,7 +23,13 @@ window.addEventListener('load', adjustDivSize);
             }
             const resizeTool = document.getElementsByClassName('resizeToolBlock');
             const windowHeight = window.innerHeight;
-            const newHeight = windowHeight * 0.05; // Ajustez selon vos besoins
+            let newHeight=0;
+            console.log(window.location.href)
+            if(window.location.href==="http://localhost:5500/indexMobile.html"){// Scaling the resize factor on Mobile/tablet
+              newHeight = windowHeight * ScalingFactorMobile;
+            }
+            else{ // Scaling the resize factor on other device
+              newHeight = windowHeight * ScalingFactor;}
             for (let i = 0; i < resizeTool.length; i++) {
               resizeTool[i].style.height = newHeight + 'px';
               resizeTool[i].style.width = newHeight + 'px';
@@ -42,7 +49,7 @@ function OpenPopUp(){
   PopupOverlay.setAttribute('class', 'open');
 }
 
-PopupOkay.addEventListener("click" , function (e) {
+PopupOkay.addEventListener('click' , function (e) {
   PopupOverlay.removeAttribute('class', 'open');
   PopupOverlay.setAttribute('class', 'close');
 });
@@ -128,6 +135,9 @@ function MobilePage() {
   if(Asked ==false){
     Asked=true;
     window.location.href = 'indexMobile.html';
-    alert("YOU HAVE JOINED THE MOBILE VERSION")
+    alert("YOU HAVE JOINED THE MOBILE VERSION");
+    
     }
   }
+
+//-------------- Mobile page Default scale
