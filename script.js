@@ -119,15 +119,22 @@ const onClickPixel = (canvasEl, pixelSize,e) => {
 
   let touchStartX = 0;
   let touchStartY = 0;
-  const touchThreshold = 2; // Threshold in pixels to detect significant touch movement
+  const touchThreshold = 5; // Threshold in pixels to detect significant touch movement
 
+  let touchTimeStart = 0;
+  let touchTimeEnd = 0;
+  let touchTiming= 1;
 canvasEl.addEventListener("touchstart", (event) => {
   const touch = event.changedTouches[0];
+  touchTimeStart = new Date();
   touchStartX = touch.pageX;
   touchStartY = touch.pageY;
 });
 
   canvasEl.addEventListener("touchend", (event) => {
+    touchTimeEnd = new Date();
+    touchTiming = touchTimeEnd - touchTimeStart;
+    alert(touchTiming);
     const touch = event.changedTouches[0];
     const offsetX = touch.pageX - canvasEl.offsetLeft;
     const offsetY = touch.pageY - canvasEl.offsetTop;
@@ -143,7 +150,7 @@ canvasEl.addEventListener("touchstart", (event) => {
     const colIndex = Math.floor(offsetX/ pixelSize);// get the Y axis index
     const rowIndex = Math.floor(offsetY/ pixelSize);// get the X axis index
    
-    if (pixelData[rowIndex][colIndex] !== null&& deltaX <= touchThreshold && deltaY <= touchThreshold) {
+    if (pixelData[rowIndex][colIndex] !== null&& deltaX <= touchThreshold && deltaY <= touchThreshold && touchTiming>=1000) {
       createPixel(rowIndex,colIndex,currentColorChoice)
       }
     const pixel = {colIndex,rowIndex, color: currentColorChoice}
