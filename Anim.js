@@ -3,7 +3,7 @@
 window.addEventListener('resize', adjustDivSize);
 window.addEventListener('load', adjustDivSize);
 const ScalingFactor = 0.05
-const ScalingFactorMobile = 0.1
+const ScalingFactorMobile = 0.08
         function adjustDivSize() {
           console.log()
           if(window.location.href=== "indexMobile.html")
@@ -25,14 +25,19 @@ const ScalingFactorMobile = 0.1
             const windowHeight = window.innerHeight;
             let newHeight=0;
             console.log(window.location.href)
-            if(window.location.href==="http://localhost:5500/indexMobile.html"){// Scaling the resize factor on Mobile/tablet
+            if(window.location.href==="http://localhost:5500/indexMobile.html"){// Scaling the resize factor for the color on Mobile/tablet
               newHeight = windowHeight * ScalingFactorMobile;
+              newMargin = windowHeight * 0.02;
+              for (let i = 0; i < resizeTool.length; i++) {//applying the margin resize
+              resizeTool[i].style.margin = newMargin + 'px';}
             }
-            else{ // Scaling the resize factor on other device
-              newHeight = windowHeight * ScalingFactor;}
-            for (let i = 0; i < resizeTool.length; i++) {
+            else{ // Scaling the resize factor for the color on other device
+              newHeight = windowHeight * ScalingFactor;
+              }
+            for (let i = 0; i < resizeTool.length; i++) {//applying the resize
               resizeTool[i].style.height = newHeight + 'px';
               resizeTool[i].style.width = newHeight + 'px';
+              
           }
 
           const colorChoice = document.getElementById('colorChoice');
