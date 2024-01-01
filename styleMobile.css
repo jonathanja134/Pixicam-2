@@ -67,7 +67,7 @@ body {
   flex-flow: nowrap;
   position: sticky;
   background: var(--blueBACK);
-  width: 1610px;
+  width: 1410px;
   max-width: -moz-max-content;
   max-width: max-content;
   height: -moz-max-content;
@@ -87,7 +87,7 @@ body {
 }
 
 #colorChoice.indexPage {
-  margin-top: 2vh;
+  margin-top: 10%;
 }
 
 .resizeToolBlock {
