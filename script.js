@@ -113,9 +113,7 @@ const onClickPixel = (canvasEl, pixelSize,e) => {
       createPixel(rowIndex,colIndex,currentColorChoice)
       alert("contextmenu")
       }
-    const pixel = {colIndex,rowIndex, color: currentColorChoice}
-    let pixelRef = db.collection('pixel').doc(`pixel :${pixel.colIndex}-${pixel.rowIndex}`)
-    pixelRef.set(pixel, {merge: true})
+    const pixel = {colIndex,rowIndex, color: currentColorChoice}//pixel data
   });
 
   let touchStartX = 0;
