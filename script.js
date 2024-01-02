@@ -22,7 +22,9 @@ let panning = Boolean;
 document.querySelector("html").addEventListener("wheel", function (e) {
   e.preventDefault();
 }, { passive: false });
+
 //---- 2/ creation of the color Toolbar ----//
+
 i=0;
 colorList.forEach(color => {
   //Using the ColorList we generate the <div>
@@ -153,8 +155,6 @@ canvasEl.addEventListener("touchstart", (event) => {
   });
 };
 
-
-
 function createPixel(rowIndex,colIndex,color)
 {
   if ( panning !=false ){
@@ -238,7 +238,6 @@ function mouseEvent(event) {
         view.applyTo(canvas);
        
     }
-    
     event.preventDefault();
 }
 function mouseWheelEvent(event) {
@@ -253,5 +252,4 @@ function mouseWheelEvent(event) {
     }
     event.preventDefault();
 }
-
 //---------------------------------------

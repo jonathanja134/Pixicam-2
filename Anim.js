@@ -1,4 +1,4 @@
-//------------ 1/ We rezise the color block -----------// 
+//------------------------ 1/ We rezise the color block --------------------------// 
 
 window.addEventListener('resize', adjustDivSize);
 window.addEventListener('load', adjustDivSize);
@@ -6,7 +6,7 @@ const ScalingFactor = 0.04
 const ScalingFactorMobile = 0.08
         function adjustDivSize() {
           console.log()
-          if(window.location.pathname.includes("/index.html"))//this will make the container always square even for small width 
+          if(window.location.pathname.includes("/index.html"))//this will make the container always squared even for small width 
             {
               const Container = document.getElementById("Container");
               let Height = Container.offsetHeight;
@@ -38,12 +38,12 @@ const ScalingFactorMobile = 0.08
             for (let i = 0; i < resizeTool.length; i++) {//applying the resize
               resizeTool[i].style.height = newHeight + 'px';
               resizeTool[i].style.width = newHeight + 'px';
-              
           }
-          const newRadius = (newHeight *0.4 ); // Ajustez selon vos besoins
+          const newRadius = (newHeight *0.4 ); // Resizing tthe border radius according to the new Height
           colorChoice.style.borderRadius = newRadius + 'px';
         }
-//-------------------2/ POP UP--------------------//
+
+//-----------------------------2/ POP UP-------------------------------//
 
 function OpenPopUp(){
   let PopupOkay = document.getElementById("Popup-Okay");
@@ -53,17 +53,13 @@ function OpenPopUp(){
   PopupOverlay.setAttribute('class', 'open');
 
     if (PopupOkay) {// if statement prevent error on mobile page wich doesn't contain popUp
-    alert("pop1")
     PopupOkay.addEventListener('click' , function (e) {
-      alert("pop2")
       PopupOverlay.setAttribute('class', 'close');
-      alert("pop3")
     });
-    alert("pop4")
   }
 }
 
-//-------------3/ Animation scale for the selected color--------------//
+//-------------------3/ Animation scale for the selected color------------------//
 
 let resizeToolBlock = document.getElementsByClassName("resizeToolBlock");
 
@@ -82,21 +78,15 @@ for (var i = 0; i < resizeToolBlock.length; i++) {
     };
   })(i));
 }
-//--------------------------------Open page function-------------------------------//
 
-function allerAPage(nouvellePage) {
-  window.location.href = nouvellePage + '.html';
-}
-
-//-----------------------------Hiding tool bar-----------------------------------//
-let hiden= Boolean;
-hiden=false
+//---------------------------4/ Hiding tool bar-----------------------------------//
+let hiden = Boolean;
+hiden = false
 function HideToolbar(){
-  console.log(hiden)
-  if(hiden === true){
+  if(hiden === true){//case if the toolbar is hiden
     hiden=false;
     colorChoice.querySelectorAll('div').forEach(item => {
-      item.style.display = "flex"; // Clear the innerHTML of each color item
+      item.style.display = "flex";
       });
     colorChoice.querySelectorAll("section").forEach((item, index) => {
       if (index === 1 || index === 0 ) {
@@ -108,7 +98,7 @@ function HideToolbar(){
     });
     colorChoice.style.background =  "#668bcb";  
   }
-  else if(hiden===false){
+  else if(hiden===false){//case if the toolbar is visible
     hiden=true;
     colorChoice.querySelectorAll('div').forEach(item => {
       item.style.display = "none"; // Clear the innerHTML of each color item
@@ -124,19 +114,19 @@ function HideToolbar(){
     colorChoice.style.background =  "none";
     colorChoice.style.boxShadow =  "none";
   }
-  console.log(hiden)
 }
 
-//-------------- Redirect to the mobilie app
-
-
+//------------------------5/ Redirect to the mobilie app-----------------------//
 
 if(!window.location.pathname.includes('indexMobile.html'))
-{window.addEventListener('touchstart', MobilePage);
+{window.addEventListener('touchstart', function() {
+  allerAPage("indexMobile");
+  });
 }
+//---------------------------6/ Open page function-------------------------------//
 
-function MobilePage() {
-    window.location.href = 'indexMobile.html';
-    alert("YOU HAVE JOINED THE MOBILE VERSION");
+function allerAPage(nouvellePage) {
+  window.location.href = nouvellePage + '.html';
+  if(nouvellePage==="indexMobile")
+  {alert("YOU ARE JOINING THE MOBILE VERSION");}
 }
-//-------------- Mobile page Default scale
