@@ -152,14 +152,13 @@ canvasEl.addEventListener("touchstart", (event) => {
    
     if (pixelData[rowIndex][colIndex] !== null && deltaX <= touchThreshold && deltaY <= touchThreshold && touchTiming >= 5000) {
       console.log("Before Alert");
+      alert("touchend")
       alert(touchTiming);
       console.log("After Alert");
       createPixel(rowIndex,colIndex,currentColorChoice);
       console.log("After create pixel");
       }
-    const pixel = {colIndex,rowIndex, color: currentColorChoice}
-    let pixelRef = db.collection('pixel').doc(`pixel :${pixel.colIndex}-${pixel.rowIndex}`)
-    pixelRef.set(pixel, {merge: true})
+    const pixel = {colIndex,rowIndex, color: currentColorChoice}//pixel data
   });
 };
 
