@@ -22,17 +22,17 @@ const ScalingFactorMobile = 0.08
               }
             }
             const resizeTool = document.getElementsByClassName('resizeToolBlock');
+            const colorChoice = document.getElementById('colorChoice');
             const windowHeight = window.innerHeight;
             let newHeight=0;
             console.log(window.location.href)
             if(window.location.href==="http://localhost:5500/indexMobile.html"){// Scaling the resize factor for the color on Mobile/tablet
               newHeight = windowHeight * ScalingFactorMobile;
-              let newInerMargin = newHeight * 0.35;
-              let newOuterMargin = newHeight *2
               //newMargin = windowHeight * 0.02;
               for (let i = 0; i < resizeTool.length; i++) {//applying the margin resize
-              resizeTool[i].style.margin = newInerMargin + 'px';}
-              document.getElementById('colorChoice').marginTop = newOuterMargin;
+              resizeTool[i].style.margin = newInerMargin + 'px';
+              }
+              colorChoice.style.marginTop = newOuterMargin + 'px';
             }
             else{ // Scaling the resize factor for the color on other device
               newHeight = windowHeight * ScalingFactor;
@@ -42,9 +42,7 @@ const ScalingFactorMobile = 0.08
               resizeTool[i].style.width = newHeight + 'px';
               
           }
-
-          const colorChoice = document.getElementById('colorChoice');
-          const newRadius = (windowHeight *0.03 ); // Ajustez selon vos besoins
+          const newRadius = (newHeight *0.4 ); // Ajustez selon vos besoins
           colorChoice.style.borderRadius = newRadius + 'px';
         }
 //-------------------2/ POP UP--------------------//

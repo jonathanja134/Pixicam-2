@@ -109,8 +109,9 @@ const onClickPixel = (canvasEl, pixelSize,e) => {
     event.preventDefault();
     const colIndex = Math.floor(event.offsetX / pixelSize);// get the Y axis index
     const rowIndex = Math.floor(event.offsetY / pixelSize);// get the X axis index
-    if (pixelData[rowIndex][colIndex] !== null) {
+    if (pixelData[rowIndex][colIndex] !== null && canvasEl.addEventListener()!== "touchstart") {
       createPixel(rowIndex,colIndex,currentColorChoice)
+      alert("contextmenu")
       }
     const pixel = {colIndex,rowIndex, color: currentColorChoice}
     let pixelRef = db.collection('pixel').doc(`pixel :${pixel.colIndex}-${pixel.rowIndex}`)
@@ -149,9 +150,12 @@ canvasEl.addEventListener("touchstart", (event) => {
     const colIndex = Math.floor(offsetX/ pixelSize);// get the Y axis index
     const rowIndex = Math.floor(offsetY/ pixelSize);// get the X axis index
    
-    if (pixelData[rowIndex][colIndex] !== null&& deltaX <= touchThreshold && deltaY <= touchThreshold && touchTiming>=1500) {
-      createPixel(rowIndex,colIndex,currentColorChoice)
+    if (pixelData[rowIndex][colIndex] !== null && deltaX <= touchThreshold && deltaY <= touchThreshold && touchTiming >= 5000) {
+      console.log("Before Alert");
       alert(touchTiming);
+      console.log("After Alert");
+      createPixel(rowIndex,colIndex,currentColorChoice);
+      console.log("After create pixel");
       }
     const pixel = {colIndex,rowIndex, color: currentColorChoice}
     let pixelRef = db.collection('pixel').doc(`pixel :${pixel.colIndex}-${pixel.rowIndex}`)
