@@ -109,7 +109,7 @@ const onClickPixel = (canvasEl, pixelSize,e) => {
     event.preventDefault();
     const colIndex = Math.floor(event.offsetX / pixelSize);// get the Y axis index
     const rowIndex = Math.floor(event.offsetY / pixelSize);// get the X axis index
-    if (pixelData[rowIndex][colIndex] !== null && canvasEl.addEventListener()!== "touchstart") {
+    if (pixelData[rowIndex][colIndex] !== null && window.location.pathname.includes("/index.html")) {
       createPixel(rowIndex,colIndex,currentColorChoice)
       alert("contextmenu")
       }
@@ -236,7 +236,7 @@ function mouseEvent(event) {
       panning = false}
     if (event.type === "contextmenu") {mouse.button = false}
     if (event.type === "mouseup" || event.type === "mouseout") { mouse.button = false ;canvasEl.style.cursor = "crosshair";}
-    if (window.location.href=="http://127.0.0.1:5500/FullSizePage.html"){multiplicator=1.1;}
+    if (window.location.pathname.includes("/FullSizePage.html")){multiplicator=1.1;}
     mouse.oldX = mouse.x;
     mouse.oldY = mouse.y;
     mouse.x = event.pageX*multiplicator;

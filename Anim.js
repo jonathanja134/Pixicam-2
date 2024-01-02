@@ -6,7 +6,7 @@ const ScalingFactor = 0.05
 const ScalingFactorMobile = 0.08
         function adjustDivSize() {
           console.log()
-          if(window.location.href=== "indexMobile.html")
+          if(window.location.pathname.includes("/indexMobile.html"))//this will make the container always square even for small width 
             {
               const Container = document.getElementById("Container");
               let Height = Container.offsetHeight;
@@ -26,7 +26,7 @@ const ScalingFactorMobile = 0.08
             const windowHeight = window.innerHeight;
             let newHeight=0;
             console.log(window.location.href)
-            if(window.location.href==="http://localhost:5500/indexMobile.html"){// Scaling the resize factor for the color on Mobile/tablet
+            if(window.location.pathname.includes("/indexMobile.html")){// Scaling the resize factor for the color on Mobile/tablet
               newHeight = windowHeight * ScalingFactorMobile;
               //newMargin = windowHeight * 0.02;
               for (let i = 0; i < resizeTool.length; i++) {//applying the margin resize
