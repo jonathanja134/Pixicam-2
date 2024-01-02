@@ -143,7 +143,6 @@ canvasEl.addEventListener("touchstart", (event) => {
     // Calculate the distance between touch start and end locations
     const deltaX = Math.abs(touchEndX - touchStartX);
     const deltaY = Math.abs(touchEndY - touchStartY);
-    event.preventDefault();
     const colIndex = Math.floor(offsetX/ pixelSize);// get the Y axis index
     const rowIndex = Math.floor(offsetY/ pixelSize);// get the X axis index
    
@@ -208,13 +207,14 @@ const view = (() => {
   return API;
 })();
 
-
+if (window.location.pathname.includes("/index.html") || 
+window.location.pathname.includes("/FullSizePage")) {
 container.addEventListener("mousemove", mouseEvent, {passive: false});
 container.addEventListener("mousedown", mouseEvent, {passive: false});
 container.addEventListener("mouseup", mouseEvent, {passive: false});
 container.addEventListener("mouseout", mouseEvent, {passive: false});
 container.addEventListener("wheel", mouseWheelEvent, {passive: false});
-
+}
 const mouse = {x: 0, y: 0, oldX: 0, oldY: 0, button: false};
 let multiplicator=2.55;
 

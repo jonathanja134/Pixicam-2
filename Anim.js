@@ -2,7 +2,7 @@
 
 window.addEventListener('resize', adjustDivSize);
 window.addEventListener('load', adjustDivSize);
-const ScalingFactor = 0.05
+const ScalingFactor = 0.04
 const ScalingFactorMobile = 0.08
         function adjustDivSize() {
           console.log()
@@ -25,7 +25,6 @@ const ScalingFactorMobile = 0.08
             const colorChoice = document.getElementById('colorChoice');
             const windowHeight = window.innerHeight;
             let newHeight=0;
-            console.log(window.location.href)
             if(window.location.pathname.includes("/indexMobile.html")){// Scaling the resize factor for the color on Mobile/tablet
               newHeight = windowHeight * ScalingFactorMobile;
               newInerMargin = windowHeight * 0.02;
@@ -46,26 +45,22 @@ const ScalingFactorMobile = 0.08
         }
 //-------------------2/ POP UP--------------------//
 
-let PopupOkay = document.getElementById("Popup-Okay");
-let PopupOverlay = document.getElementById("Popup-Overlay");
-
 function OpenPopUp(){
+  let PopupOkay = document.getElementById("Popup-Okay");
+  let PopupOverlay = document.getElementById("Popup-Overlay");
+
   PopupOverlay.removeAttribute('class', 'close');
   PopupOverlay.setAttribute('class', 'open');
-}
-if (window.location.pathname.includes("/index.html") || 
-window.location.pathname.includes("/FullSizePage")) {//prevent error on mobile page wich doesn't contain popUp
-  PopupOkay.addEventListener('click' , function (e) {
-    PopupOverlay.removeAttribute('class', 'open');
-    PopupOverlay.setAttribute('class', 'close');
-  });
 
-  toogle = document.getElementById("Popup-Okay");
-  menu = document.getElementById("Popup-Overlay");
-
-  toogle.addEventListener("click" , function () {
-    menu.setAttribute('class', 'close');
-  });
+    if (PopupOkay) {// if statement prevent error on mobile page wich doesn't contain popUp
+    alert("pop1")
+    PopupOkay.addEventListener('click' , function (e) {
+      alert("pop2")
+      PopupOverlay.setAttribute('class', 'close');
+      alert("pop3")
+    });
+    alert("pop4")
+  }
 }
 
 //-------------3/ Animation scale for the selected color--------------//
@@ -134,17 +129,17 @@ function HideToolbar(){
 
 //-------------- Redirect to the mobilie app
 
-window.addEventListener('touchstart',MobilePage)
-Asked = Boolean;
-Asked = false;
+
+
+if(!window.location.pathname.includes('indexMobile.html'))
+{window.addEventListener('touchstart', MobilePage);
+}
 
 function MobilePage() {
-  if(Asked ==false){
-    Asked=true;
+  if (!Asked) {
+    Asked = true;
     window.location.href = 'indexMobile.html';
     alert("YOU HAVE JOINED THE MOBILE VERSION");
-    
-    }
   }
-
+}
 //-------------- Mobile page Default scale

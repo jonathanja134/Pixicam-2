@@ -16,11 +16,11 @@ let takeInp = document.getElementById("takeInp");
 
 // éxécuter une fct qd ces éléments sont cliqués
 
-connectBtn.onclick = connectToMetaMask;
-storeBtn.onclick = store;
-watchBtn.onclick = watch;
-takeBtn.onclick = take;
-addUserBtn.onclick = addUser;
+//connectBtn.onclick = connectToMetaMask;
+//storeBtn.onclick = store;
+//watchBtn.onclick = watch;
+//takeBtn.onclick = take;
+//addUserBtn.onclick = addUser;
 // fct qui permet de se connecter à metamask
 async function connectToMetaMask(){
     // vérifie si metamask est installé
