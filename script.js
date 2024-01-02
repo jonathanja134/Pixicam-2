@@ -143,18 +143,12 @@ canvasEl.addEventListener("touchstart", (event) => {
     // Calculate the distance between touch start and end locations
     const deltaX = Math.abs(touchEndX - touchStartX);
     const deltaY = Math.abs(touchEndY - touchStartY);
-  
-    panning =true
     event.preventDefault();
     const colIndex = Math.floor(offsetX/ pixelSize);// get the Y axis index
     const rowIndex = Math.floor(offsetY/ pixelSize);// get the X axis index
    
     if (pixelData[rowIndex][colIndex] !== null && deltaX <= touchThreshold && deltaY <= touchThreshold && touchTiming >= 1500) {
-      console.log("Before Alert");
-      alert(touchTiming);
-      console.log("After Alert");
       createPixel(rowIndex,colIndex,currentColorChoice);
-      console.log("After create pixel");
       }
     const pixel = {colIndex,rowIndex, color: currentColorChoice}//pixel data
   });

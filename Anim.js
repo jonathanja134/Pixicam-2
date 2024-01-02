@@ -53,18 +53,19 @@ function OpenPopUp(){
   PopupOverlay.removeAttribute('class', 'close');
   PopupOverlay.setAttribute('class', 'open');
 }
+if(window.location.includes("/index.html")|| window.location.includes("/FullSizePage")){//prevent error on mobile page wich doesn't contain popUp
+  PopupOkay.addEventListener('click' , function (e) {
+    PopupOverlay.removeAttribute('class', 'open');
+    PopupOverlay.setAttribute('class', 'close');
+  });
 
-PopupOkay.addEventListener('click' , function (e) {
-  PopupOverlay.removeAttribute('class', 'open');
-  PopupOverlay.setAttribute('class', 'close');
-});
+  toogle = document.getElementById("Popup-Okay");
+  menu = document.getElementById("Popup-Overlay");
 
-toogle = document.getElementById("Popup-Okay");
-menu = document.getElementById("Popup-Overlay");
-
-toogle.addEventListener("click" , function () {
-  menu.setAttribute('class', 'close');
-});
+  toogle.addEventListener("click" , function () {
+    menu.setAttribute('class', 'close');
+  });
+}
 
 //-------------3/ Animation scale for the selected color--------------//
 
