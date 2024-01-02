@@ -6,7 +6,7 @@ const ScalingFactor = 0.05
 const ScalingFactorMobile = 0.08
         function adjustDivSize() {
           console.log()
-          if(window.location.pathname.includes("/indexMobile.html"))//this will make the container always square even for small width 
+          if(window.location.pathname.includes("/index.html"))//this will make the container always square even for small width 
             {
               const Container = document.getElementById("Container");
               let Height = Container.offsetHeight;
