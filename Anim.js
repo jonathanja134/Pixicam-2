@@ -136,10 +136,7 @@ if(!window.location.pathname.includes('indexMobile.html'))
 }
 
 function MobilePage() {
-  if (!Asked) {
-    Asked = true;
     window.location.href = 'indexMobile.html';
     alert("YOU HAVE JOINED THE MOBILE VERSION");
-  }
 }
 //-------------- Mobile page Default scale
