@@ -53,7 +53,8 @@ function OpenPopUp(){
   PopupOverlay.removeAttribute('class', 'close');
   PopupOverlay.setAttribute('class', 'open');
 }
-if(window.location.includes("/index.html")|| window.location.includes("/FullSizePage")){//prevent error on mobile page wich doesn't contain popUp
+if (window.location.pathname.includes("/index.html") || 
+window.location.pathname.includes("/FullSizePage")) {//prevent error on mobile page wich doesn't contain popUp
   PopupOkay.addEventListener('click' , function (e) {
     PopupOverlay.removeAttribute('class', 'open');
     PopupOverlay.setAttribute('class', 'close');
