@@ -28,11 +28,10 @@ const ScalingFactorMobile = 0.08
             console.log(window.location.href)
             if(window.location.pathname.includes("/indexMobile.html")){// Scaling the resize factor for the color on Mobile/tablet
               newHeight = windowHeight * ScalingFactorMobile;
-              //newMargin = windowHeight * 0.02;
+              newInerMargin = windowHeight * 0.02;
               for (let i = 0; i < resizeTool.length; i++) {//applying the margin resize
               resizeTool[i].style.margin = newInerMargin + 'px';
               }
-              colorChoice.style.marginTop = newOuterMargin + 'px';
             }
             else{ // Scaling the resize factor for the color on other device
               newHeight = windowHeight * ScalingFactor;
