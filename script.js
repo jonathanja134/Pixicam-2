@@ -109,9 +109,10 @@ const onClickPixel = (canvasEl, pixelSize,e) => {
     event.preventDefault();
     const colIndex = Math.floor(event.offsetX / pixelSize);// get the Y axis index
     const rowIndex = Math.floor(event.offsetY / pixelSize);// get the X axis index
-    if (pixelData[rowIndex][colIndex] !== null && window.location.pathname.includes("/index.html")) {
+    if (pixelData[rowIndex][colIndex] !== null && 
+      (window.location.pathname.includes("/index.html") || 
+       window.location.pathname.includes("/FullSizePage.html"))) {
       createPixel(rowIndex,colIndex,currentColorChoice)
-      alert("contextmenu")
       }
     const pixel = {colIndex,rowIndex, color: currentColorChoice}//pixel data
   });
@@ -148,9 +149,8 @@ canvasEl.addEventListener("touchstart", (event) => {
     const colIndex = Math.floor(offsetX/ pixelSize);// get the Y axis index
     const rowIndex = Math.floor(offsetY/ pixelSize);// get the X axis index
    
-    if (pixelData[rowIndex][colIndex] !== null && deltaX <= touchThreshold && deltaY <= touchThreshold && touchTiming >= 5000) {
+    if (pixelData[rowIndex][colIndex] !== null && deltaX <= touchThreshold && deltaY <= touchThreshold && touchTiming >= 1500) {
       console.log("Before Alert");
-      alert("touchend")
       alert(touchTiming);
       console.log("After Alert");
       createPixel(rowIndex,colIndex,currentColorChoice);
